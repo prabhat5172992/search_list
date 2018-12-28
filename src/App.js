@@ -41,12 +41,13 @@ class App extends Component {
     this.setState({
       search: value,
       resultDisplay: false,
-      progressDisplay
+      progressDisplay,
+      searchResult: []
     });
   }
 
   filterSearchValues(){
-    let search = this.state.search.toLowerCase();
+    let search = this.state.search ? this.state.search.toLowerCase() : "";
     let result1 = search ? data.filter(item => item._id.toLowerCase().includes(search) || item.name.toLowerCase().includes(search) || item.gender.toLowerCase().includes(search)) : [];
     let result2 = data.filter(item => item._id.toLowerCase() === search|| item.name.toLowerCase() === search || item.gender.toLowerCase() === search );
     let searchResult = result2.length && result1 >= result2 ? result2 : result1;
