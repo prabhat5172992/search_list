@@ -50,7 +50,7 @@ class App extends Component {
     let search = this.state.search ? this.state.search.toLowerCase() : "";
     let result1 = search ? data.filter(item => item._id.toLowerCase().includes(search) || item.name.toLowerCase().includes(search) || item.gender.toLowerCase().includes(search)) : [];
     let result2 = data.filter(item => item._id.toLowerCase() === search|| item.name.toLowerCase() === search || item.gender.toLowerCase() === search );
-    let searchResult = result2.length && result1 >= result2 ? result2 : result1;
+    let searchResult = result2.length && result1.length >= result2.length ? result2 : result1;
     let resultDisplay = !searchResult.length;
     this.setState({
       searchResult,
